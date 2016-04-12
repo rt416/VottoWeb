@@ -1,3 +1,4 @@
+/* @flow */
 import { Enum } from 'enumify';
 
 class GamblerTypes extends Enum {}

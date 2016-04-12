@@ -1,3 +1,4 @@
+/* @flow */
 import React from 'react';
 import Card from 'material-ui/lib/card/card';
 import CardTitle from 'material-ui/lib/card/card-title';
@@ -5,7 +6,8 @@ import GamblerTypes from './GamblerTypes';
 import calculateDiscount from './CalculateDiscount';
 import CardText from 'material-ui/lib/card/card-text';
 
-const Gambler = (props) => {
+const Gambler = (props : { gamblerType: GamblerTypes, alpha: number,
+  customerIncreaseRate: number, costToRevenue: number}) => {
   const [winDiscount, loseDiscount] = calculateDiscount(
     props.alpha,
     props.customerIncreaseRate,

@@ -1,4 +1,8 @@
-function calculateDiscount(alpha, customerIncreaseRate, gamblerType, costToRevenue) {
+/* @flow */
+import type GamblerTypes from './GamblerTypes';
+
+function calculateDiscount(alpha : number, customerIncreaseRate : number,
+  gamblerType : GamblerTypes, costToRevenue : number) : [number, number] {
   const gradient = -(1 - gamblerType.winningProbability) / gamblerType.winningProbability;
   const intercept = (alpha / customerIncreaseRate + (costToRevenue *
     (1 - alpha / customerIncreaseRate))) / gamblerType.winningProbability;

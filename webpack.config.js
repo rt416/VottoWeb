@@ -4,7 +4,7 @@ const SRC_DIR = path.resolve(__dirname, 'src');
 const DIST_DIR = path.resolve(__dirname, 'dist');
 
 const config = {
-  entry: `${SRC_DIR}/index.js`,
+  entry: `${SRC_DIR}/index.jsx`,
 
   devtool: 'source-map',
 
@@ -16,11 +16,16 @@ const config = {
   module: {
     loaders: [
       {
-        test: /\.jsx?/,
+        test: /\.jsx?$/,
         include: SRC_DIR,
+        exclude: /node_modules/,
         loader: 'babel',
       },
     ],
+  },
+
+  resolve: {
+    extensions: ['', '.js', '.jsx'],
   },
 };
 
