@@ -16,7 +16,7 @@ export function calculateDiscount(alpha: number, customerIncreaseRate: number,
 function calculateNextAlpha(gamblerType: GamblerTypes, currentAlpha: number,
   alphaMax: number, alphaMin: number, incrementFactor: number,
   incrementAdjustor: number) : number {
-  const alphaMidPoint = (alphaMax - alphaMin) / 2;
+  const alphaMidPoint = (alphaMax + alphaMin) / 2;
   const alphaAdjustor = incrementFactor * (incrementAdjustor - gamblerType.winningProbability);
   switch (gamblerType.name) {
     case GamblerTypes.moral.name:
