@@ -3,7 +3,13 @@
   "extends": "airbnb",
   "plugins": [
     "react",
-    "flow-vars",
-    "babel"
-  ]
+    "babel",
+    "flow-vars"
+  ],
+  "rules": {
+    "react/jsx-boolean-value": "off",
+    "flow-vars/define-flow-type": 1,
+    "flow-vars/use-flow-type": 1,
+    "arrow-body-style": "off"
+  }
 }
