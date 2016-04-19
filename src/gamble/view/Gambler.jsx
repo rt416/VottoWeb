@@ -4,6 +4,15 @@ import Card from 'material-ui/lib/card/card';
 import CardTitle from 'material-ui/lib/card/card-title';
 import CardText from 'material-ui/lib/card/card-text';
 
+function generateInner(winningProbability: number, winDiscount: number, loseDiscount: number) {
+  if (winningProbability === 1) {
+    return `You are guaranteed to win ${((1 - winDiscount) * 100).toFixed(2)}% off.`;
+  }
+  return `Your winning probability is ${(winningProbability * 100).toFixed()}%.` +
+  `You get ${((1 - winDiscount) * 100).toFixed(2)}% off if you win.` +
+  `You get ${((1 - loseDiscount) * 100).toFixed(2)}% off if you lose.`;
+}
+
 const Gambler = ({
   title,
   description,
@@ -23,9 +32,7 @@ const Gambler = ({
       <Card onClick={ onClick } >
         <CardTitle title={title} subtitle={description} />
         <CardText>
-          Your winning probability is {(winningProbability * 100).toFixed()}%.
-          You get {((1 - winDiscount) * 100).toFixed(2)}% off if you win.
-          You get {((1 - loseDiscount) * 100).toFixed(2)}% off if you lose.
+          {generateInner(winningProbability, winDiscount, loseDiscount)}
         </CardText>
       </Card>
     </div>

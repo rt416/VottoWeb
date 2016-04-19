@@ -5,7 +5,11 @@ const SRC_DIR = path.resolve(__dirname, 'src');
 const DIST_DIR = path.resolve(__dirname, 'dist');
 
 const config = {
-  entry: `${SRC_DIR}/index.jsx`,
+  entry: [
+    'webpack-dev-server/client?http://0.0.0.0:8080',
+    'webpack/hot/only-dev-server',
+    `${SRC_DIR}/index.jsx`,
+  ],
   devtool: 'source-map',
   output: {
     path: DIST_DIR,
@@ -18,7 +22,7 @@ const config = {
         test: /\.jsx?$/,
         include: SRC_DIR,
         exclude: /node_modules/,
-        loader: 'babel',
+        loaders: ['react-hot', 'babel'],
       },
     ],
   },
