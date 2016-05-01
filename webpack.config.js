@@ -14,7 +14,7 @@ const config = {
   output: {
     path: DIST_DIR,
     filename: 'bundle.js',
-    publicPath: 'http://localhost:8080/',
+    publicPath: 'http://localhost:8080/', // TODO: Remove this when properly configuring paths
   },
   module: {
     loaders: [

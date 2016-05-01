@@ -38,13 +38,5 @@ const Gambler = ({
     </div>
   );
 
-Gambler.propTypes = {
-  onClick: React.PropTypes.func.isRequired,
-  title: React.PropTypes.string.isRequired,
-  description: React.PropTypes.string.isRequired,
-  winningProbability: React.PropTypes.number.isRequired,
-  winDiscount: React.PropTypes.number.isRequired,
-  loseDiscount: React.PropTypes.number.isRequired,
-};
 
 export default Gambler;

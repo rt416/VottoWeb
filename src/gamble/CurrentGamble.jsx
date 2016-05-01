@@ -25,7 +25,7 @@ function getGamblersAndDiscounts(
 }
 
 const mapStateToProps = (state) => {
-  const { gambleState, customerIncreaseRate, coffeeCost, coffeePrice } = state;
+  const { gambleState, customerIncreaseRate, coffeeCost, coffeePrice } = state.gamblersApp;
   const { alpha, isWin, savings, gambling } = gambleState;
   return {
     gamblers: getGamblersAndDiscounts(alpha, customerIncreaseRate, coffeeCost, coffeePrice),

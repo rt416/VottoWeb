@@ -2,9 +2,8 @@
 import { GAMBLE, SIMULATE_PURCHASE } from '../actions/actions';
 import GamblerTypes from '../GamblerTypes';
 import { calculateNextAlphaForGambler, didWin } from '../Calculations';
-import { createStore } from 'redux';
 
-function buildInitialState() {
+export function buildInitialState() {
   const alphaMax = 1.2;
   const alphaMin = 1.0;
   const alphaRangeDenominator = 4;
@@ -27,7 +26,7 @@ function buildInitialState() {
   return initialState;
 }
 
-function gamblersApp(state: any = buildInitialState(), action: {
+export function gamblersApp(state: any = buildInitialState(), action: {
   type: string,
   winDiscount: number,
   loseDiscount: number,
@@ -62,11 +61,3 @@ function gamblersApp(state: any = buildInitialState(), action: {
       return state;
   }
 }
-
-function configureStore() {
-  const store = createStore(gamblersApp, buildInitialState(),
-    window.devToolsExtension ? window.devToolsExtension() : undefined);
-  return store;
-}
-
-export default configureStore;
