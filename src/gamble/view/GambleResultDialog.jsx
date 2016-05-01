@@ -38,11 +38,4 @@ const GambleResultDialog = ({ onSubmit, isWin, savings, open } : {
   );
 };
 
-GambleResultDialog.propTypes = {
-  onSubmit: React.PropTypes.func.isRequired,
-  isWin: React.PropTypes.bool.isRequired,
-  savings: React.PropTypes.number.isRequired,
-  open: React.PropTypes.bool.isRequired,
-};
-
 export default GambleResultDialog;
