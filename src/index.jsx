@@ -4,11 +4,12 @@ import { render } from 'react-dom';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute } from 'react-router';
-import 'font-awesome/css/font-awesome.css';
 
 import App from './App';
 import CurrentGamble from './gamble/CurrentGamble';
+import Questionnaire from './questionnaire/view/Questionnaire';
 import { store, history } from './rootReducer';
+import './global.css';
 
 injectTapEventPlugin();
 
@@ -17,6 +18,7 @@ render((
     <Router history={history}>
       <Route path="/" component={App}>
         <IndexRoute component={CurrentGamble} />
+        <Route path="/questionnaire" component={Questionnaire} />
       </Route>
     </Router>
   </Provider>

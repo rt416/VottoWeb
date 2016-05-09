@@ -1,0 +1,12 @@
+.radio-question {
+  margin-bottom: 20px;
+}
+.question-group {
+  padding: 20px;
+}
+
+.questionnaire {
+  width: 100%;
+  text-align: 'left';
+  display: 'inline-block';
+}

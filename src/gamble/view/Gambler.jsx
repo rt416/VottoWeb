@@ -1,8 +1,6 @@
 /* @flow */
 import React from 'react';
-import Card from 'material-ui/lib/card/card';
-import CardTitle from 'material-ui/lib/card/card-title';
-import CardText from 'material-ui/lib/card/card-text';
+import { Card, CardTitle, CardText } from 'material-ui/Card';
 
 function generateInner(winningProbability: number, winDiscount: number, loseDiscount: number) {
   if (winningProbability === 1) {
@@ -28,15 +26,15 @@ const Gambler = ({
   loseDiscount: number,
   onClick: () => void
 }) => (
-    <div>
-      <Card onClick={ onClick } >
-        <CardTitle title={title} subtitle={description} />
-        <CardText>
-          {generateInner(winningProbability, winDiscount, loseDiscount)}
-        </CardText>
-      </Card>
-    </div>
-  );
+  <div>
+    <Card onClick={onClick} >
+      <CardTitle title={title} subtitle={description} />
+      <CardText>
+        {generateInner(winningProbability, winDiscount, loseDiscount)}
+      </CardText>
+    </Card>
+  </div>
+);
 
 
 export default Gambler;

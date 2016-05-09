@@ -1,7 +1,7 @@
 /* @flow */
 import React from 'react';
-import Dialog from 'material-ui/lib/dialog';
-import FlatButton from 'material-ui/lib/flat-button';
+import Dialog from 'material-ui/Dialog';
+import FlatButton from 'material-ui/FlatButton';
 
 /* eslint no-else-return: "off" */
 function generateMessage(isWin : boolean, savings : number) {
@@ -22,7 +22,7 @@ const GambleResultDialog = ({ onSubmit, isWin, savings, open } : {
   const actions = [
     <FlatButton
       label="Simulate Purchase"
-      primary={true}
+      secondary={true}
       onTouchTap={onSubmit}
     />,
   ];
@@ -33,7 +33,7 @@ const GambleResultDialog = ({ onSubmit, isWin, savings, open } : {
       modal={true}
       open={open}
     >
-      { generateMessage(isWin, savings) }
+      {generateMessage(isWin, savings)}
     </Dialog>
   );
 };

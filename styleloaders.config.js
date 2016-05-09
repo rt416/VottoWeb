@@ -7,7 +7,7 @@ function getStyleLoaders(env) {
   const loaders = [
     {
       test: /\.css$/,
-      loader: 'style!css?sourceMap?camleCase',
+      loader: 'style!css?modules&camelCase&sourceMap',
     }, {
       test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
       loader: 'url?limit=10000&mimetype=application/font-woff',
