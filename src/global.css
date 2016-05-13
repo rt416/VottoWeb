@@ -1,7 +1,8 @@
 body {
   margin: 0px;
+  overflow: hidden;
 }
 
-:global(#app) {
-  overflow: hidden;
+html, body, :global(#app) {
+  height: 100%
 }

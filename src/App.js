@@ -6,7 +6,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import fontAwesome from 'font-awesome/css/font-awesome.css';
 
 const appBarStyle = {
-  flex: 'none',
+  flex: '0 0 auto',
 };
 
 const containerStyle = {
@@ -16,7 +16,7 @@ const containerStyle = {
 };
 
 const contentStyle = {
-  flex: '1 0 auto',
+  flex: '1 1 auto',
   position: 'relative',
   overflowY: 'auto',
 };
@@ -24,12 +24,12 @@ const contentStyle = {
 const App = ({ children } : { children: React$Element<{}>}) => (
   <MuiThemeProvider muiTheme={getMuiTheme()}>
     <div style={containerStyle}>
-      <div style={appBarStyle}>
-        <AppBar
-          title="Votto - sometimes, normal discounts are just too boring"
-          iconClassNameLeft={`${fontAwesome.fa} ${fontAwesome.faCoffee}`}
-        />
-      </div>
+      <AppBar
+        title="Votto - sometimes, normal discounts are just too boring"
+        iconClassNameLeft={`${fontAwesome.fa} ${fontAwesome.faCoffee}`}
+        style={appBarStyle}
+        zDepth={0}
+      />
       <div style={contentStyle}>
         {children}
       </div>
