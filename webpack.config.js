@@ -8,7 +8,7 @@ const config = {
   entry: [
     'webpack-dev-server/client?http://0.0.0.0:8080',
     'webpack/hot/only-dev-server',
-    `${SRC_DIR}/index.jsx`,
+    `${SRC_DIR}/index.js`,
   ],
   devtool: 'source-map',
   output: {

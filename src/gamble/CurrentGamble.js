@@ -20,12 +20,15 @@ function getGamblersAndDiscounts(
         gambler,
         coffeeCost / coffeePrice
       );
-      return Object.assign({}, gambler, { loseDiscount, winDiscount });
+      return { ...gambler, winDiscount, loseDiscount };
     });
 }
 
 const mapStateToProps = (state) => {
-  const { gambleState, customerIncreaseRate, coffeeCost, coffeePrice } = state.gamblersApp;
+  const {
+    gambleState,
+    constants: { customerIncreaseRate, coffeeCost, coffeePrice },
+  } = state.gamblersApp;
   const { alpha, isWin, savings, gambling } = gambleState;
   return {
     gamblers: getGamblersAndDiscounts(alpha, customerIncreaseRate, coffeeCost, coffeePrice),
