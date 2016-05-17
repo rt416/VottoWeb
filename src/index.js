@@ -9,9 +9,11 @@ import App from './App';
 import CurrentGamble from './gamble/CurrentGamble';
 import Questionnaire from './questionnaire/view/Questionnaire';
 import { store, history } from './rootReducer';
+import { hydrateFromFirebase } from './gamble/actions/actions';
 import './global.css';
 
 injectTapEventPlugin();
+store.dispatch(hydrateFromFirebase());
 
 render((
   <Provider store={store}>

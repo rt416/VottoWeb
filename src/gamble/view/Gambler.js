@@ -6,8 +6,8 @@ function generateInner(winningProbability: number, winDiscount: number, loseDisc
   if (winningProbability === 1) {
     return `You are guaranteed to win ${((1 - winDiscount) * 100).toFixed(2)}% off.`;
   }
-  return `Your winning probability is ${(winningProbability * 100).toFixed()}%.` +
-  `You get ${((1 - winDiscount) * 100).toFixed(2)}% off if you win.` +
+  return `Your winning probability is ${(winningProbability * 100).toFixed()}%. ` +
+  `You get ${((1 - winDiscount) * 100).toFixed(2)}% off if you win. ` +
   `You get ${((1 - loseDiscount) * 100).toFixed(2)}% off if you lose.`;
 }
 

@@ -28,11 +28,13 @@ const mapStateToProps = (state) => {
   const {
     gambleState,
     constants: { customerIncreaseRate, coffeeCost, coffeePrice },
+    hydrating,
   } = state.gamblersApp;
   const { alpha, isWin, savings, gambling } = gambleState;
   return {
     gamblers: getGamblersAndDiscounts(alpha, customerIncreaseRate, coffeeCost, coffeePrice),
     gambleResult: { isWin, savings, gambling },
+    hydrating,
   };
 };
 
