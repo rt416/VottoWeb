@@ -1,10 +1,9 @@
 /* @flow */
-import type { GambleAction, SimulatePurchaseAction, HydrateAction } from './actionTypes';
-import Firebase from 'firebase';
-
-export const GAMBLE = 'GAMBLE';
-export const SIMULATE_PURCHASE = 'SIMULATE_PURCHASE';
-export const HYDRATE = 'HYDRATE';
+/* eslint-disable no-duplicate-imports, import/no-duplicates */
+import type { GambleAction, SimulatePurchaseAction,
+  HydrateAction, EndDemoAction } from './actionTypes';
+import { GAMBLE, SIMULATE_PURCHASE, HYDRATE, END_DEMO } from './actionTypes';
+import { constantsRef } from '../../firebase/configureFirebase';
 
 function hydrate(constants: {
   customerIncreaseRate: number,
@@ -34,10 +33,13 @@ export function hydrateFromFirebase() {
   return (dispatch: (action: HydrateAction) => void, getState: () => any) => {
     const { gamblersApp: { hydrating } } = getState();
     if (hydrating) {
-      const firebaseRef = new Firebase('https://votto.firebaseio.com/constants');
-      firebaseRef.once('value', dataSnapshot => {
+      constantsRef.once('value', dataSnapshot => {
         dispatch(hydrate(dataSnapshot.val()));
       });
     }
   };
+}
+
+export function endDemo(): EndDemoAction {
+  return { type: END_DEMO };
 }

@@ -1,17 +1,22 @@
+/* @flow */
+export const GAMBLE: 'GAMBLE' = 'GAMBLE';
+export const SIMULATE_PURCHASE: 'SIMULATE_PURCHASE' = 'SIMULATE_PURCHASE';
+export const HYDRATE: 'HYDRATE' = 'HYDRATE';
+export const END_DEMO: 'END_DEMO' = 'END_DEMO';
 
 export type GambleAction = {
-  type: string,
+  type: typeof GAMBLE,
   gamblerName: string,
   winDiscount: number,
   loseDiscount: number
 }
 
 export type SimulatePurchaseAction = {
-  type: string,
+  type: typeof SIMULATE_PURCHASE,
 }
 
 export type HydrateAction = {
-  type: string,
+  type: typeof HYDRATE,
   customerIncreaseRate: number,
   coffeeCost: number,
   coffeePrice: number,
@@ -19,4 +24,8 @@ export type HydrateAction = {
   alphaMin: number,
   incrementAdjustor: number,
   alphaRangeDenominator: number
+}
+
+export type EndDemoAction = {
+  type: typeof END_DEMO
 }

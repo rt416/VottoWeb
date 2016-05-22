@@ -1,7 +1,7 @@
 /* @flow */
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
+import { syncHistoryWithStore, routerReducer, routerMiddleware } from 'react-router-redux';
 import { browserHistory } from 'react-router';
 
 import { gamblersApp } from './gamble/reducers/reducers';
@@ -12,7 +12,7 @@ export const store = createStore(
     routing: routerReducer,
   }),
   compose(
-    applyMiddleware(thunk),
+    applyMiddleware(thunk, routerMiddleware(browserHistory)),
     window.devToolsExtension ? window.devToolsExtension() : f => f
   )
 );

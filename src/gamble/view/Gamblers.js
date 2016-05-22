@@ -4,7 +4,15 @@ import Gambler from './Gambler';
 import GambleResultDialog from './GambleResultDialog';
 import CircularProgress from 'material-ui/CircularProgress';
 
-const Gamblers = ({ gamblers, onGamblerClick, gambleResult, onSimulatePurchase, hydrating } : {
+const Gamblers = ({
+  gamblers,
+  gambleResult,
+  hydrating,
+  isDemoing,
+  onGamblerClick,
+  onSimulatePurchase,
+  onEndDemo,
+} : {
   gamblers: Array<{
     title: string,
     description: string,
@@ -15,12 +23,14 @@ const Gamblers = ({ gamblers, onGamblerClick, gambleResult, onSimulatePurchase, 
   }>,
   onGamblerClick: (gambler: string, winDiscount: number, loseDiscount: number) => void,
   onSimulatePurchase: () => void,
+  onEndDemo: () => void,
   gambleResult: {
     isWin: boolean,
     savings: number,
     gambling: boolean,
   },
-  hydrating: boolean
+  hydrating: boolean,
+  isDemoing: boolean,
 }) => {
   if (hydrating) {
     return (
@@ -46,6 +56,8 @@ const Gamblers = ({ gamblers, onGamblerClick, gambleResult, onSimulatePurchase, 
       <GambleResultDialog
         onSubmit={onSimulatePurchase}
         {...gambleResult}
+        endDemo={onEndDemo}
+        isDemoing={isDemoing}
         open={!gambleResult.gambling}
       />
     </div>

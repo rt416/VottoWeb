@@ -73,3 +73,7 @@ export function didWin(currentAlpha: number, nextAlpha: number) : boolean {
   // customer is getting less discount, => losing.
   return !(currentAlpha < nextAlpha);
 }
+
+export function calculateInitialAlpha(alphaMax: number, alphaMin: number): number {
+  return (alphaMax + alphaMin) / 2;
+}

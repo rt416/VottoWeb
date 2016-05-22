@@ -29,12 +29,14 @@ const mapStateToProps = (state) => {
     gambleState,
     constants: { customerIncreaseRate, coffeeCost, coffeePrice },
     hydrating,
+    isDemoing,
   } = state.gamblersApp;
   const { alpha, isWin, savings, gambling } = gambleState;
   return {
     gamblers: getGamblersAndDiscounts(alpha, customerIncreaseRate, coffeeCost, coffeePrice),
     gambleResult: { isWin, savings, gambling },
     hydrating,
+    isDemoing,
   };
 };
 
@@ -45,6 +47,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     onSimulatePurchase: () => {
       dispatch(Actions.simulatePurchase());
+    },
+    onEndDemo: () => {
+      dispatch(Actions.endDemo());
     },
   };
 };

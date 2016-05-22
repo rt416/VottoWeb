@@ -13,11 +13,13 @@ function generateMessage(isWin : boolean, savings : number) {
   }
 }
 
-const GambleResultDialog = ({ onSubmit, isWin, savings, open } : {
+const GambleResultDialog = ({ onSubmit, isWin, savings, open, isDemoing, endDemo } : {
   onSubmit: () => void,
   isWin: boolean,
   savings: number,
-  open: boolean
+  open: boolean,
+  isDemoing: boolean,
+  endDemo: () => void
 }) => {
   const actions = [
     <FlatButton
@@ -26,6 +28,15 @@ const GambleResultDialog = ({ onSubmit, isWin, savings, open } : {
       onTouchTap={onSubmit}
     />,
   ];
+  if (isDemoing) {
+    actions.push(
+      <FlatButton
+        label="End Demo"
+        primary={true}
+        onTouchTap={endDemo}
+      />
+    );
+  }
   return (
     <Dialog
       title="Lady luck says..."
